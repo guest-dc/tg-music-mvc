@@ -1,4 +1,5 @@
 :root {
+  --background-grey-color: #222;
   --header-text-color: #ba8d63;
 }
 
@@ -15,7 +16,7 @@
 /* ========= HEADER ========= */
 
 header {
-  background: #222;
+  background: var(--background-grey-color);
 }
 
   header .navbar {
@@ -25,25 +26,31 @@ header {
   }
 
   header .navbar-nav {
+    gap: 2rem;
     --bs-nav-link-color: var(--header-text-color);
     --bs-nav-link-hover-color: var(--header-text-color);
   }
 
   header .nav-link {
     font-family: 'WesternBangBang', sans-serif;
+    padding: 4px 0;
     font-size: 30px;
     font-weight: 500;
     text-shadow: 4px 4px 6px rgba(0,0,0,0.5);
     transition: color 0.2s ease-in-out;
   }
 
-  header .nav-link:hover {
-    filter: opacity(0.9);
-  }
+    header .nav-link:hover {
+      filter: opacity(0.9);
+    }
 
-  header .nav-link.active {
-    text-decoration: underline;
-  }
+    header .nav-link.active {
+      text-decoration: underline;
+    }
+
+    header .nav-link i {
+      font-size: 24px;
+    }
 
   header .navbar-toggler {
     border: none;
@@ -51,28 +58,45 @@ header {
     color: var(--header-text-color);
   }
 
-  header .navbar-toggler:focus {
-    box-shadow: none;
-  }
+    header .navbar-toggler:focus {
+      box-shadow: none;
+    }
+
+    header .navbar-toggler #menuIcon {
+      transition: transform 0.4s ease;
+      display: inline-block;
+    }
+
+    header .navbar-toggler.collapsed #menuIcon {
+      transform: rotate(0deg);
+    }
+
+    header .navbar-toggler:not(.collapsed) #menuIcon {
+      transform: rotate(90deg);
+    }
 
   header .nav-wrapper {
-  display: flex;
-  flex-direction: column;
-}
+    display: flex;
+    flex-direction: column;
+  }
 
-header .navbar-socials {
-  color: white;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
+  header .navbar-socials {
+    color: white;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
 
 @media (max-width: 992px) {
-  header .navbar-nav .nav-link {
-    padding: 4px 0;
+  header .navbar-nav {
+    gap: 0.5rem;
   }
 
   header .navbar-socials {
     justify-content: left !important;
+    margin-bottom: 4px;
+    height: auto;
   }
 }

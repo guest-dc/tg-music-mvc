@@ -6,13 +6,13 @@
                <img src="~/images/logo-gw.png" alt="Thomas Guest Music" width="110">
             </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-               <i class="bi bi-list" id="menuIcon"></i>
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+               <i id="menuIcon" class="bi bi-list"></i>
             </button>
 
             <div id="navbarNav" class="collapse navbar-collapse justify-content-end">
                <div class="nav-wrapper">
-                  <ul class="navbar-nav mb-2 mb-lg-0">
+                  <ul class="navbar-nav mb-0">
                      <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
                      <li class="nav-item"><a class="nav-link" href="/Events">Events</a></li>
                      <li class="nav-item"><a class="nav-link" href="/Music">Music</a></li>
@@ -44,3 +44,20 @@
         </div>
     </nav>
 </header>
+
+<script>
+   document.addEventListener('DOMContentLoaded', function () {
+      const menuIcon = document.getElementById('menuIcon');
+      const navbarCollapse = document.getElementById('navbarNav');
+
+      navbarCollapse.addEventListener('show.bs.collapse', function () {
+         menuIcon.classList.remove('bi-list');
+         menuIcon.classList.add('bi-x');
+      });
+
+      navbarCollapse.addEventListener('hide.bs.collapse', function () {
+         menuIcon.classList.remove('bi-x');
+         menuIcon.classList.add('bi-list');
+      });
+   });
+</script>
