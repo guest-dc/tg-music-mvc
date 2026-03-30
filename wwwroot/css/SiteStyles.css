@@ -1,0 +1,78 @@
+:root {
+  --header-text-color: #ba8d63;
+}
+
+/* ========= FONTS ========= */
+
+@font-face {
+  font-family: 'WesternBangBang';
+  src: url('../fonts/WesternBangBang.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ========= HEADER ========= */
+
+header {
+  background: #222;
+}
+
+  header .navbar {
+    --bs-navbar-padding-y: 0;
+    --bs-navbar-brand-padding-y: 5px;
+    --bs-navbar-active-color: var(--header-text-color);
+  }
+
+  header .navbar-nav {
+    --bs-nav-link-color: var(--header-text-color);
+    --bs-nav-link-hover-color: var(--header-text-color);
+  }
+
+  header .nav-link {
+    font-family: 'WesternBangBang', sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    text-shadow: 4px 4px 6px rgba(0,0,0,0.5);
+    transition: color 0.2s ease-in-out;
+  }
+
+  header .nav-link:hover {
+    filter: opacity(0.9);
+  }
+
+  header .nav-link.active {
+    text-decoration: underline;
+  }
+
+  header .navbar-toggler {
+    border: none;
+    font-size: 40px;
+    color: var(--header-text-color);
+  }
+
+  header .navbar-toggler:focus {
+    box-shadow: none;
+  }
+
+  header .nav-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+header .navbar-socials {
+  color: white;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+@media (max-width: 992px) {
+  header .navbar-nav .nav-link {
+    padding: 4px 0;
+  }
+
+  header .navbar-socials {
+    justify-content: left !important;
+  }
+}

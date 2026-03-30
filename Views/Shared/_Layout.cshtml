@@ -1,50 +1,47 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <title>@ViewData["Title"] - Thomas Guest Music</title>
+
+    <!-- Metadata Fields -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - tg_music_mvc</title>
-    <script type="importmap"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=0.85" />
+    <meta name="description" content="Official website for Thomas Guest Music. Explore new song releases, events, and updates." />
+    <meta name="keywords" content="Thomas Guest, Thomas Guest Music, Singer, Country Music, Music, Macon, Georgia" />
+    <meta name="author" content="Thomas Guest" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Thomas Guest Music" />
+    <meta property="og:description" content="Official website for Thomas Guest Music. Explore new song releases, events, and updates." />
+    <meta property="og:url" content="https://www.thomasguestmusic.com/" />
+    <meta property="og:site_name" content="Thomas Guest Music" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.thomasguestmusic.com/icons/logo-gw.png" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Thomas Guest Music" />
+    <meta name="twitter:description" content="Official website for Thomas Guest Music. Explore new song releases, events, and updates." />
+    <meta name="twitter:image" content="https://www.thomasguestmusic.com/icons/logo-gw.png" />
+    
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/tg_music_mvc.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap-icons-1.13.1-custom/bootstrap-icons.css"/>
+    <link rel="stylesheet" href="~/css/SiteStyles.css" />
+    @RenderSection("Styles", required: false)
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">tg_music_mvc</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    @await Html.PartialAsync("_Header")
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - tg_music_mvc - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    <main>
+        @RenderBody()
+    </main>
+
+    @await Html.PartialAsync("_Footer")
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
